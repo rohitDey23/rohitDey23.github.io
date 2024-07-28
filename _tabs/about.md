@@ -3,12 +3,8 @@
 icon: fas fa-info-circle
 order: 4
 ---
-<!-- > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip } -->
-
-
-> The site is under construction and will soon be updated {: .prompt-info }
-
+> The site is under construction and will soon be updated.
+{: .prompt-info }
 
 <div style="text-align: justify"> <p> Hello! 👋 I'm a passionate robotics and AI enthusiast 🤖, and a PhD candidate at WPI 🎓. My curiosity in robotics and automation has driven me to tackle a diverse range of challenges, from localizing Autonomous Ground Vehicles (AGVs) to navigating drones, and now, developing medical robots for surgery.</p>
 
