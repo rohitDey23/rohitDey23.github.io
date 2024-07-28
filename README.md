@@ -2,14 +2,12 @@
 
 
 
-
-
 ## About Me
-Hello there!👋,  I'm a robotics 🤖 and AI enthusiast for most of the time, and a PhD candidate 🎓 at WPI for the rest. My curousity in the field of robotics and automations have led me to work on wide variety of problems ranging from localizing Autonomous Ground Vechiles (AGVs) to navigating Drones and now developing Medical Robots for surgery. 
+Hello! 👋 I'm a passionate robotics and AI enthusiast 🤖, and a PhD candidate at WPI 🎓. My curiosity in robotics and automation has driven me to tackle a diverse range of challenges, from localizing Autonomous Ground Vehicles (AGVs) to navigating drones, and now, developing medical robots for surgery.
 
-I'm always keen on picking up new skills 😇 and up for collaborating on exciting projects with like-minded innovators 🤝.
+I am always eager to acquire new skills and thrive on collaborating with like-minded innovators on exciting projects. 😇 If you share my passion for advancing robotics and AI, I'd love to connect and explore potential collaborations.🤝
 
-## Areas of Expertise
+## Skill Set and Tool Proficiency
 
 ![My Skills](https://skillicons.dev/icons?i=python,cpp,matlab,pytorch,opencv,tensorflow,ros,docker,github)
 
