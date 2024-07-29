@@ -18,35 +18,38 @@ order: 4
 
 <details>
 <summary><a href="#"> MonoDepth-vSLAM: A Visual EKF-SLAM using Optical Flow and Monocular Depth Estimation -in CARLA  ✨</a></summary> 
-    
-- Developed an algorithm to address the drawbacks of monocular-SLAM.
-- Used concepts of Optical Flow in EKF 
-- Estimated Depth of features from single Image with help of Deep Neural Network
-
+<ul>
+<li> Developed an algorithm to address the drawbacks of monocular-SLAM.</li>
+<li> Used concepts of Optical Flow in EKF </li>
+<li> Estimated Depth of features from single Image with help of Deep Neural Network</li>
+</ul>
 </details>
 
 <details>
 <summary><a href="#">An Intuitive Haptic Enabled Console for Teleoperation of Interventional Robotic Platform ✨</a></summary>
-
-- Designed and Modeled a Teleoperated Neuro-interventional Robotic Platform for guidewire and catheter naviagtion
-- Implemented Field Oriented Control (FOC) for contorlling multiple BLDC motors wirelessly with micro-Ros.
-- Developed Ros2 plugin for real-time motion mapping with Electro-Magnetic Tracking Sensors. 
+<ul>
+<li> Designed and Modeled a Teleoperated Neuro-interventional Robotic Platform for guidewire and catheter naviagtion.</li>
+<li> Implemented Field Oriented Control (FOC) for contorlling multiple BLDC motors wirelessly with micro-Ros.</li>
+<li> Developed Ros2 plugin for real-time motion mapping with Electro-Magnetic Tracking Sensors. </li>
+</ul>
 </details>
 
 <details>
 <summary><a href="#"> 3D Vasculature Reconsturction from 2D Portable Ultrasound Scan</a> ✨</summary>
-
-- Developed an algorithm to reconstruct 3D vasculature from 2D ultrasound scans without dissrupting the normal medical procedure.
-- Leveraged UCO-SLAM with RGBD images for tracking the ultrasound probe.
-- Conducted clinical trials and tested the efficacy of the system. 
+<ul>
+<li> Developed an algorithm to reconstruct 3D vasculature from 2D ultrasound scans without dissrupting the normal medical procedure.</li>
+<li> Leveraged UCO-SLAM with RGBD images for tracking the ultrasound probe.</li>
+<li> Conducted clinical trials and tested the efficacy of the system. </li>
+</ul>
 </details>
 
 <details>
 <summary><a href="#">Dispenser Bot using UR10e ✨</a></summary>    
-
-- Developed a Dispenser Bot with UR10e for automated dispensing and mixing of chemicals for versatile application as per need.
-- Used Modbus TCP/IP and serial RS485 for real-time communication protocol to interact with different sensors
-- Developed a software application with a friendly UI to directly communicate with the dispenser bot to carry out high-level functions.
+<ul>
+<li>Developed a Dispenser Bot with UR10e for automated dispensing and mixing of chemicals for versatile application as per need.</li>
+<li>Used Modbus TCP/IP and serial RS485 for real-time communication protocol to interact with different sensors.</li>
+<li>Developed a software application with a friendly UI to directly communicate with the dispenser bot to carry out high-level functions.</li>
+</ul>
 </details>
 
 ## Publications 
