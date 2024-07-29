@@ -8,9 +8,7 @@ order: 4
 
 <div style="text-align: justify"> <p> Hello! 👋 I'm a passionate robotics and AI enthusiast 🤖, and a PhD candidate at WPI 🎓. My curiosity in robotics and automation has driven me to tackle a diverse range of challenges, from localizing Autonomous Ground Vehicles (AGVs) to navigating drones, and now, developing medical robots for surgery.</p>
 
-<p>I am always eager to acquire new skills and thrive on collaborating with like-minded innovators on exciting projects. 😇 If you share my passion for advancing robotics and AI,🤝 I'd love to connect and explore potential collaborations.</p>
-
-</div>
+<p>I am always eager to acquire new skills and thrive on collaborating with like-minded innovators on exciting projects. 😇 If you share my passion for advancing robotics and AI,🤝 I'd love to connect and explore potential collaborations.</p></div>
 
 ## Skill Set and Tool Proficiency
 
@@ -24,6 +22,7 @@ order: 4
 - Developed an algorithm to address the drawbacks of monocular-SLAM.
 - Used concepts of Optical Flow in EKF 
 - Estimated Depth of features from single Image with help of Deep Neural Network
+
 </details>
 
 <details>
