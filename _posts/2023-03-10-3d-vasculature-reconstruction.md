@@ -1,5 +1,6 @@
 ---
 title: "3D Vasculature Reconstruction from 2D Portable Ultrasound Scans"
+published: false
 date: 2023-03-10 09:00:00 -0400
 categories: [Medical Imaging, Computer Vision]
 tags: [medical-imaging, slam, 3d-reconstruction, ultrasound, opencv, point-cloud]

@@ -1,5 +1,6 @@
 ---
 title: "Haptic-Enabled Teleoperation Console for Neuro-Interventional Robotic Platform"
+published: false
 date: 2024-08-20 14:30:00 -0400
 categories: [Medical Robotics, Teleoperation]
 tags: [medical-robotics, haptics, ros2, control-systems, bldc-motors, micro-ros]
@@ -7,7 +8,6 @@ image:
   path: /assets/img/projects/haptic-robot-thumbnail.jpg
   alt: Haptic Teleoperation System for Medical Robotics
 math: true
-pin: true
 ---
 
 ## Overview
