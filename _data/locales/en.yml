@@ -1,0 +1,7 @@
+# en.yml locale override
+tabs:
+  home: Projects
+  categories: Categories
+  tags: Tags
+  archives: Archives
+  about: About

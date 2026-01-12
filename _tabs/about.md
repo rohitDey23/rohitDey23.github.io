@@ -1,8 +1,8 @@
 ---
 # the default layout is 'page'
-layout: post
+layout: page
 icon: fas fa-info-circle
-order: 1
+order: 0
 pin: true
 toc: true
 
@@ -97,17 +97,14 @@ sensors.
 
 ## Education 🎓
 
-- **Ph.D. in Robotics Engineering** | Worcester Polytechnic Institute, MA | 2022 - Present  
-  *GPA: 4.0/4.0*  
+- **Ph.D. in Robotics Engineering** (GPA: 4.0/4.0) | Worcester Polytechnic Institute, MA | 2022 - 2026  
   Focus: Medical Robotics, Control Systems, Human-Robot Interaction
 
-- **Master of Science in Mechanical Engineering** | University of Cincinnati, OH | 2018 - 2021  
-  *GPA: 4.0/4.0*  
+- **Master of Science in Mechanical Engineering** (GPA: 4.0/4.0) | University of Cincinnati, OH | 2018 - 2021  
   Focus: AGV, Computer Vision, Localization & Controls, Robotic Manipulation.
 
-- **Bachelor of Technology in Mechanical Engineering** | West Bengal University of Technology, India | 2014 - 2018  
-  *GPA: 8.39/10.0
-Focus: Additive Manufacturing, CNC, Micro Fluidics
+- **Bachelor of Technology in Mechanical Engineering** (GPA: 8.39/10.0) | WBUT | 2013 - 2017  
+  Focus: Additive Manufacturing, CNC, Micro Fluidics
 
 ---
 
@@ -115,7 +112,7 @@ Focus: Additive Manufacturing, CNC, Micro Fluidics
 
 - **Research Excellence Award 2025** | Worcester Polytechnic Institute | 2025 
 - **David Fite Scholarship 2024** | Worcester Polytechnic Institute | 2024-2025
-- **Graduate School Merit Scholarship** | University of Cincinnati | 2022-2024
+- **Graduate School Merit Scholarship** | University of Cincinnati | 2018-2021
 
 ---
 
