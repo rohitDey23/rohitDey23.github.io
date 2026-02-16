@@ -4,6 +4,9 @@ date: 2024-11-15 14:00:00 -0400
 categories: [Computer Vision, 3D Reconstruction]
 tags: [nerf, gaussian-splatting, view-synthesis, deep-learning, computer-vision, 3d-reconstruction]
 math: true
+image:
+  path: /assets/img/NOVELVIEW/gs3d_rend_comparison.gif
+  alt: 3D Gaussian Splatting and NeRF View Synthesis
 ---
 
 ## **Overview**
@@ -81,6 +84,9 @@ To improve efficiency, NeRF uses two networks:
 - **Fine network**: Focuses sampling on regions with high density (where objects exist)
 
 This reduces wasted computation in empty space by 2-3x.
+
+<img src="/assets/img/NOVELVIEW/nerf_output12.gif" alt="NeRF Novel View Synthesis" width="80%">
+*Figure 1: NeRF synthesizing novel views from a learned volumetric representation. Notice the smooth camera transitions and view-dependent lighting effects.*
 
 ---
 
@@ -231,6 +237,9 @@ For 3DGS, we use: $\lambda_1 = 0.8, \lambda_2 = 0.2$
 - Accurate view-dependent effects (specularities, reflections)
 - Real-time performance enables interactive applications
 
+<img src="/assets/img/NOVELVIEW/gs3d_rend_comparison.gif" alt="3D Gaussian Splatting Rendering Comparison" width="80%">
+*Figure 2: 3D Gaussian Splatting rendering quality comparison. The explicit Gaussian representation captures fine details with significantly faster rendering times compared to NeRF.*
+
 ---
 
 ## **Real-Time Visualization**
@@ -246,6 +255,8 @@ Both implementations integrate with **SIBR Viewers** (System for Image-Based Ren
 - `Q/E`: Vertical movement
 - `F`: Toggle full-screen
 - `Tab`: Show/hide UI
+
+> **Note**: A real-time rendering demo video (`gs3d_real_time_rendering.mp4`) is available in the project repository, showcasing the interactive performance of the 3D Gaussian Splatting implementation at 60+ FPS on an RTX 2060.
 
 ---
 
