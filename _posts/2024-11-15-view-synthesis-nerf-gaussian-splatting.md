@@ -1,12 +1,12 @@
 ---
 title: "View Synthesis: From NeRF to 3D Gaussian Splatting"
-date: 2024-11-15 14:00:00 -0400
+date: 2024-07-15 14:00:00 -0400
 categories: [Computer Vision, 3D Reconstruction]
 tags: [nerf, gaussian-splatting, view-synthesis, deep-learning, computer-vision, 3d-reconstruction]
 math: true
 image:
   path: /assets/img/NOVELVIEW/gs3d_rend_comparison.gif
-  alt: 3D Gaussian Splatting and NeRF View Synthesis
+  alt: 3D Gaussian Splatting (right) from series of images (left)
 ---
 
 ## **Overview**
@@ -201,12 +201,6 @@ For 3DGS, we use: $\lambda_1 = 0.8, \lambda_2 = 0.2$
 
 ## **Experimental Results**
 
-### **Datasets Tested**
-
-1. **MipNeRF360**: Complex indoor/outdoor scenes
-2. **Tanks & Temples**: High-resolution captured environments  
-3. **Deep Blending**: Handheld phone captures
-4. **Custom Captures**: Lab environments and objects
 
 ### **Quantitative Comparison**
 
@@ -262,30 +256,100 @@ Both implementations integrate with **SIBR Viewers** (System for Image-Based Ren
 
 ## **Deployment Pipeline**
 
-### **Docker Containerization**
+### **Docker Containerization & Setup**
 
-To simplify dependencies (CUDA, PyTorch, COLMAP, custom CUDA kernels), I created Docker images:
+To simplify the complex dependency stack (CUDA, PyTorch, COLMAP, custom CUDA kernels), I created complete Docker-based workflows for both implementations. The repository is available at: **[github.com/rohitDey23/view_synthesis](https://github.com/rohitDey23/view_synthesis)**
 
-```dockerfile
-FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
+#### **3D Gaussian Splatting Setup (Docker)**
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    python3.10 conda cmake build-essential \
-    libsuitesparse-dev libcxsparse3 colmap
+The 3DGS implementation uses a fully containerized environment with all dependencies pre-configured:
 
-# Install PyTorch and custom CUDA extensions
-RUN pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu118
-RUN pip3 install submodules/diff-gaussian-rasterization submodules/simple-knn
-
-WORKDIR /workspace
-```
-
-**Build & Run:**
+**1. Clone and Build:**
 ```bash
+# Clone the repository and checkout the gaussian_splatting branch
+git clone https://github.com/rohitDey23/view_synthesis.git
+cd view_synthesis
+git checkout gaussian_splatting
+
+# Build Docker image (~10 minutes)
 docker build -t view_synthesis .
-docker run --gpus all -it -v ./data:/workspace/data view_synthesis bash
 ```
+
+**2. Run Container:**
+```bash
+# Navigate to model directory for bind mounting
+cd model
+
+# Launch container with GPU support
+docker run --rm -it --name view_synth \
+    --gpus all \
+    -e DISPLAY=host.docker.internal:0 \
+    -e LIBGL_ALWAYS_INDIRECT=0 \
+    --mount type=bind,src=.,dst=/home/user_dev/code_ws/model/ \
+    --runtime=nvidia \
+    view_synthesis bash
+```
+
+**3. Train 3DGS:**
+```bash
+# Inside container: activate conda environment
+conda activate view_synthesis
+
+# Download dataset (COLMAP format required)
+cd data
+wget https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip
+unzip tandt_db.zip && rm tandt_db.zip
+
+# Install custom CUDA submodules
+pip3 install src/submodules/diff-gaussian-rasterization
+pip3 install src/submodules/simple-knn
+
+# Train the model
+cd /home/user_dev/code_ws/
+python3 src/train.py -s ./data/train_data -m ./model/
+```
+
+**4. Render Results:**
+```bash
+# Render test views
+python3 src/render.py -s ./data -m ./model/
+
+# Create GIF from renders (optional)
+python3 src/create_gif.py <ground/truth/path/> <renders/path/> <output/path/filename.gif> --duration 4
+```
+
+#### **NeRF Setup (Using UV)**
+
+The NeRF implementation uses **UV** (modern Python package manager) for dependency management, providing faster and more reliable installations:
+
+**1. Clone and Setup:**
+```bash
+# Clone the repository and checkout the nerf branch
+git clone https://github.com/rohitDey23/view_synthesis.git
+cd view_synthesis
+git checkout nerf
+
+# Initialize UV project (UV handles all dependencies)
+uv init && uv sync
+
+# Activate the virtual environment
+source .venv/bin/activate
+```
+
+**2. Train NeRF:**
+```bash
+# Training with default configuration
+python train.py --config configs/lego.txt
+
+# Training time: ~24 hours on RTX 2060
+# Output: Saved in logs/ directory
+```
+
+**Key Differences:**
+- **3DGS**: Docker-based, ~30min training, real-time rendering
+- **NeRF**: UV-based, ~24hr training, slower rendering but compact model
+
+Both implementations support COLMAP for camera pose estimation and include SIBR viewers for interactive visualization.
 
 ---
 
@@ -323,19 +387,7 @@ docker run --gpus all -it -v ./data:/workspace/data view_synthesis bash
 
 ---
 
-## **Key Contributions**
 
-This project makes several practical contributions to the view synthesis community:
-
-1. **End-to-End Pipeline**: Complete workflow from capture to rendering, documented with reproducible Docker setup
-
-2. **Performance Optimizations**: 
-   - Memory-efficient NeRF training (10 GB → 6 GB VRAM)
-   - Optimized Gaussian splatting CUDA kernels (20% faster)
-
-3. **Comparative Analysis**: Direct comparison of NeRF vs. 3DGS on identical datasets, providing clear guidance for practitioners
-
-4. **Educational Resource**: Heavily commented code and detailed README for learning these techniques
 
 ---
 
@@ -356,34 +408,6 @@ Several exciting avenues remain unexplored:
 - **Robotics Navigation**: Photorealistic simulation environments
 - **Cultural Heritage**: Digital preservation of historical sites
 - **E-commerce**: Interactive 3D product visualization
-
----
-
-## **Technical Stack**
-
-### **Core Technologies**
-
-| Component | Technology |
-|:----------|:-----------|
-| **Deep Learning Framework** | PyTorch 2.0 with CUDA 11.8 |
-| **Differentiation** | Custom CUDA kernels for Gaussian rasterization |
-| **SfM Pipeline** | COLMAP 3.8 |
-| **Point Cloud Processing** | Open3D, PLY format |
-| **Visualization** | SIBR Viewers, OpenGL |
-| **Containerization** | Docker with NVIDIA Container Toolkit |
-
-### **Custom CUDA Extensions**
-
-Two critical CUDA modules were implemented:
-1. **diff-gaussian-rasterization**: Tile-based differentiable renderer
-2. **simple-knn**: Fast k-nearest neighbor for Gaussian initialization
-
-### **Hardware Requirements**
-
-- **Minimum**: NVIDIA GTX 1080 Ti (11GB VRAM)
-- **Recommended**: NVIDIA RTX 3090 / 4090 (24GB VRAM)
-- **CPU**: 16+ GB RAM for COLMAP preprocessing
-- **Storage**: 50-100 GB for datasets and trained models
 
 ---
 
