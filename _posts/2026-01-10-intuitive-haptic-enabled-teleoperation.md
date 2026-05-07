@@ -49,3 +49,6 @@ The demonstration below shows the master console in operation. The operator uses
 
 ## **Conclusion**
 This research presents a viable pathway for the next generation of surgical robotics. By combining the cost-effectiveness and performance of ESP32 microcontrollers with the robustness of the ROS2 ecosystem, we have created a platform that is not only precise and safe but also accessible. The integration of haptic feedback addresses a critical gap in current robotic surgery, promising better patient outcomes and improved surgeon well-being.
+
+![Haptic Module in Action](/assets/img/TIR/PXL_20251217_221627038.gif)
+*Figure 4: Haptic Module in Action.*
